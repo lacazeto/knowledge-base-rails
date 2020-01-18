@@ -1,0 +1,19 @@
+require: rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.6
+
+Layout/IndentationWidth:
+  Width: 2
+Layout/LineLength:
+  Max: 120
+Metrics/AbcSize:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
