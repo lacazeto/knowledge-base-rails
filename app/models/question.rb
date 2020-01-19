@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Article < ApplicationRecord
-  has_many :questions
+class Question < ApplicationRecord
+  belongs_to :article
 
   validates :title, presence: true, length: { minimum: 3 }
   validates :author, presence: true
