@@ -1,0 +1,14 @@
+.container
+	.row
+    .col
+      h2.heading.py-4
+        = @article.title
+      .d-flex.align-items-center
+        h3.heading.py-4 Author:
+        span
+          = @article.author
+      div
+        .mt-2
+          = @article.content
+        
+        = submit_tag "Edit", :class => "btn btn-dark mt-3"
