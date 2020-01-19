@@ -21,6 +21,7 @@ class ArticlesController < ApplicationController
   # POST
   def create
     @article = Article.new(article_params)
+    @article.author = @article.author.split.map(&:capitalize).join(' ')
 
     respond_to do |format|
       if @article.save

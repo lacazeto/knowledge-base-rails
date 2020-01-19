@@ -2,13 +2,19 @@
 	.row
     .col
       - if notice
-        = notice
+        div.alert.alert-success.alert-dismissible.fade.show.text-center.mt-3 role="alert"
+          = notice
+          button.close type="button" data-dismiss="alert" aria-label="Close"
+            span aria-hidden="true" &times;
+
+      .d-flex.align-items-center
+        h4.heading.py-4 Written by
+        span.pl-2
+          = @article.author
+
       h2.heading.py-4
         = @article.title
-      .d-flex.align-items-center
-        h3.heading.py-4 Author:
-        span
-          = @article.author
+
       div
         .mt-2
           = @article.content
