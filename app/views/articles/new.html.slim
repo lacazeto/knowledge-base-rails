@@ -1,0 +1,16 @@
+.container
+	.row
+    .col
+      .form_main
+        h2.heading.py-4
+          strong New Article
+        .form.form-group
+          = form_for @article, :url => { :action => "create" } do |f|
+            h3 Title
+            = f.text_field :title, :class => "form-control"
+            h4.mt-2 Author
+            = f.text_field :author, :class => "form-control"
+            h4.mt-2 Text
+            = f.text_area :content, :size => "60x12", :class => "form-control"
+            
+            = submit_tag "Create", :class => "btn btn-dark mt-3"
