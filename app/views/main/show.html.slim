@@ -13,17 +13,16 @@ section.bg-light.text-center.py-4
     .row
       .col-12.pb-5
         h3 Recent Articles
-      .col-lg-4    
-          h3 Article 1
-          p.lead.mb-0 This theme will look great on any device, no matter the size!        
       
-      .col-lg-4
-          h3 Article 2
-          p.lead.mb-0 Featuring the latest build of the new Bootstrap 4 framework!
-      
-      .col-lg-4          
-          h3 Article 3
-          p.lead.mb-0 Ready to use with your own content, or customize the source files!
+      - @articles.each do |article|
+        .col-lg-4    
+          .card 
+            .card-header 
+              = article.title
+            .card-body
+              p.card-text.text-truncate = article.content
+              a.btn.btn-secondary href="/articles/#{article.id}" See more
+            
       .col-12.d-flex.justify-content-center
         .col-6.col-sm-3.mt-4
           a href="/articles"
