@@ -1,6 +1,8 @@
 .container
 	.row
     .col
+      - if notice
+        = notice
       h2.heading.py-4
         = @article.title
       .d-flex.align-items-center

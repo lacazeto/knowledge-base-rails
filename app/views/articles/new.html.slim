@@ -1,3 +1,5 @@
+- errors = @article.errors.messages
+
 .container
 	.row
     .col
@@ -6,13 +8,21 @@
           strong New Article
         .form.form-group
           = form_for @article, :url => { :action => "create" } do |f|
+
             h3 Title
-            = f.text_field :title, :class => "form-control" 
+            = f.text_field :title, :class => "form-control"
+            - if errors.dig(:title).any?
+              small.text-danger = errors.dig(:title).join(',')
+
             h4.mt-2 Author
             = f.text_field :author, :class => "form-control"
+            - if errors.dig(:author).any?
+              small.text-danger = errors.dig(:author).join(',')
+
             h4.mt-2 Text
             = f.text_area :content, :size => "60x12", :class => "form-control"
-            - if errors&.any?
-              small.text-danger = @article.errors.messages
+            - if errors.dig(:content).any?
+              small.text-danger = errors.dig(:content).join(',')
 
-            = submit_tag "Create", :class => "btn btn-dark mt-3"
+            .
+              = submit_tag "Create", :class => "btn btn-dark mt-3"
