@@ -17,7 +17,7 @@ section.bg-light.text-center.py-4
       - @articles.each do |article|
         .col-lg-4    
           .card 
-            .card-header 
+            .card-header.text-truncate 
               = article.title
             .card-body
               p.card-text.text-truncate = article.content
@@ -35,18 +35,15 @@ section.testimonials.text-center.py-5
     .row
       .col-lg-4
         .testimonial-item.mx-auto.mb-5.mb-lg-0
-          img.img-fluid.rounded-circle.mb-3 src="img/testimonials-1.jpg" alt=""
           h5 Margaret E.
           p.font-weight-light.mb-0 "This is fantastic! Thanks so much guys!"
         
       .col-lg-4
         .testimonial-item.mx-auto.mb-5.mb-lg-0
-          img.img-fluid.rounded-circle.mb-3 src="img/testimonials-2.jpg" alt=""
           h5 Fred S. 
           p.font-weight-light.mb-0 "Bootstrap is a.azin.. I' ve been using it to create lots of super nice landing pages."
         
       .col-lg-4
         .testimonial-item.mx-auto.mb-5.mb-lg-0
-          img.img-fluid.rounded-circle.mb-3 src="img/testimonials-3.jpg" alt=""
           h5 Sarah W. 
           p.font-weight-ligh.mb-0 "Thanks so much for making these free resources available to us!"
