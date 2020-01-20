@@ -2,7 +2,7 @@
 
 class ArticlesController < ApplicationController
   # GET
-  def articles
+  def index
     @articles = Article.all
   end
 
