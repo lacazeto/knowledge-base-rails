@@ -4,12 +4,15 @@ AllCops:
   TargetRubyVersion: 2.6
   Exclude:
     - 'db/seeds.rb'
+    - 'node_modules/**/*'
 
 Layout/IndentationWidth:
   Width: 2
 Layout/LineLength:
   Max: 120
 Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
   Enabled: false
 Metrics/CyclomaticComplexity:
   Enabled: false
