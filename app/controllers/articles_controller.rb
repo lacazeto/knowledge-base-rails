@@ -11,12 +11,15 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id].to_i)
-    byebug
+    @article = Article.find_by(id: params[:id].to_i)
+
+    return content_not_found unless @article
   end
 
   def edit
-    @article = Article.find(params[:id].to_i)
+    @article = Article.find_by(id: params[:id].to_i)
+
+    return content_not_found unless @article
   end
 
   # POST
