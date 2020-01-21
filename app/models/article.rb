@@ -11,7 +11,7 @@ class Article < ApplicationRecord
   validates_uniqueness_of :title
 
   def save_to_german
-    de_translation.title_de = DeTranslation.new(article_id: id, title_de: german_title, content_de: german_content)
+    self.de_translation = DeTranslation.new(article_id: id, title_de: german_title, content_de: german_content)
   end
 
   def german_title

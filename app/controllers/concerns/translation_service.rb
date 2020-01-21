@@ -39,8 +39,13 @@ module TranslationService
 
       result = response.body.force_encoding('utf-8')
 
-      json = JSON.pretty_generate(JSON.parse(result))
-      puts json
+      json = JSON.parse(result)
+
+      translation_text_from(json)
+    end
+
+    def self.translation_text_from(json)
+      json.first['translations'].first['text']
     end
   end
 end

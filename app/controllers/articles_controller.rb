@@ -29,6 +29,8 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+        @article.to_german
+
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render @article, status: :created, location: @article }
       else
