@@ -6,8 +6,8 @@ require 'cgi'
 require 'json'
 require 'securerandom'
 
-module Articles
-  module TranslationService
+module TranslationService
+  module Articles
     extend ActiveSupport::Concern
 
     def self.germanize(text)
@@ -15,16 +15,12 @@ module Articles
         raise 'Please set/export the following environment variable: TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
       end
 
-      unless ENV['TRANSLATOR_TEXT_ENDPOINT']
-        raise 'Please set/export the following environment variable: TRANSLATOR_TEXT_ENDPOINT'
-      end
-
       subscription_key = ENV['TRANSLATOR_TEXT_SUBSCRIPTION_KEY']
-      endpoint = ENV['TRANSLATOR_TEXT_ENDPOINT']
+      endpoint = 'https://api.cognitive.microsofttranslator.com'
       path = '/translate?api-version=3.0'
 
       # Translate to German
-      params = '&to=de'
+      params = '&from=en&to=de'
 
       uri = URI(endpoint + path + params)
 
