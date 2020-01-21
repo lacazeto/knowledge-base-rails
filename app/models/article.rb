@@ -9,4 +9,16 @@ class Article < ApplicationRecord
   validates :content_original, presence: true
 
   validates_uniqueness_of :title
+
+  def save_to_german
+    de_translation.title_de = DeTranslation.new(article_id: id, title_de: german_title, content_de: german_content)
+  end
+
+  def german_title
+    TranslationService::Articles.germanize(title)
+  end
+
+  def german_content
+    TranslationService::Articles.germanize(content_original)
+  end
 end
