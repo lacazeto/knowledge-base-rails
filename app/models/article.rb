@@ -2,6 +2,7 @@
 
 class Article < ApplicationRecord
   has_many :questions
+  has_one :de_translation
 
   validates :title, presence: true, length: { minimum: 3 }
   validates :author, presence: true, length: { maximum: 80 }
