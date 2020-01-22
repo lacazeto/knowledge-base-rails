@@ -7,10 +7,16 @@
           button.close type="button" data-dismiss="alert" aria-label="Close"
             span aria-hidden="true" &times;
 
-      .d-flex.align-items-center
+      .d-flex.justify-content-between
+      .d-flex.align-items-center.position-relative
         h4.heading.py-4 Written by
         span.pl-2
           = @article.author
+        .position-absolute style="right:0"
+          a href=(params[:locale] == 'de' ? "?locale=en" : "")
+            span.badge.badge-pill class=(params[:locale] == 'de' ? 'badge-light' : 'badge-dark') EN
+          a href=(params[:locale] == 'de' ? "" : "?locale=de")
+            span.badge.badge-pill class=(params[:locale] == 'de' ? 'badge-dark' : 'badge-light') DE
 
       h2.heading.py-4
         = @article.title
