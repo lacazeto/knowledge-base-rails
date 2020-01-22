@@ -14,6 +14,11 @@ class ArticlesController < ApplicationController
     @article = Article.find_by(id: params[:id].to_i)
 
     return content_not_found unless @article
+
+    return unless params[:locale] == 'de'
+
+    @article.title = @article.de_translation.title_de
+    @article.content_original = @article.de_translation.content_de
   end
 
   def edit
