@@ -68,7 +68,9 @@ class ArticlesController < ApplicationController
   end
 
   # DELETE
-  def destroy; end
+  def destroy
+    # TODO
+  end
 
   private
 
