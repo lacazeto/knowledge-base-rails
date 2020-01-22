@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
     return content_not_found unless @article
 
-    return unless params[:locale] == 'de'
+    return unless params[:locale] == 'de' && @article.de_translation
 
     @article.title = @article.de_translation.title_de
     @article.content_original = @article.de_translation.content_de
