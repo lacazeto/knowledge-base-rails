@@ -1,0 +1,28 @@
+- errors = @article.errors.messages
+
+.container
+	.row
+    .col
+      .form_main
+        h2.heading.py-4
+          strong Edit Article
+        .form.form-group
+          = form_for @article, url: { action: "update" } do |f|
+
+            h3 Title
+            = f.text_field :title, value: @article.title, class: "form-control"
+            - if errors.dig(:title).any?
+              small.text-danger = errors.dig(:title).join(',')
+
+            h4.mt-2 Author
+            = f.text_field :author, value: @article.author, readonly: true, class: "form-control"
+            - if errors.dig(:author).any?
+              small.text-danger = errors.dig(:author).join(',')
+
+            h4.mt-2 Text
+            = f.text_area :content_original, value: @article.content_original, size: "60x12", class: "form-control"
+            - if errors.dig(:content_original).any?
+              small.text-danger = errors.dig(:content_original).join(',')
+
+            .
+              = submit_tag "Update", class: "btn btn-dark mt-3"

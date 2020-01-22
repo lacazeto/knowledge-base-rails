@@ -10,6 +10,11 @@ class Article < ApplicationRecord
 
   validates_uniqueness_of :title
 
+  def update_german_translation
+    de_translation&.destroy
+    save_to_german
+  end
+
   def save_to_german
     self.de_translation = DeTranslation.new(article_id: id, title_de: german_title, content_de: german_content)
   end

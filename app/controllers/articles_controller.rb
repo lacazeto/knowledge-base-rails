@@ -24,12 +24,12 @@ class ArticlesController < ApplicationController
 
   # POST
   def create
-    @article = Article.new(article_params)
+    @article = Article.new(article_params_create)
     @article.author = @article.author.split.map(&:capitalize).join(' ')
 
     respond_to do |format|
       if @article.save
-        @article.save_to_german
+        @article.update_german_translation
 
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render @article, status: :created, location: @article }
@@ -41,14 +41,37 @@ class ArticlesController < ApplicationController
   end
 
   # PUT
-  def update; end
+  def update
+    @article = Article.find_by(id: params[:id].to_i)
+
+    respond_to do |format|
+      if @article
+        if @article.update(article_params_update)
+          @article.update_german_translation
+
+          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+          format.json { render @article, status: :updated, location: @article }
+        else
+          format.html { redirect_to :edit }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
+      else
+        format.html { redirect_to :edit }
+        format.json { head :no_content }
+      end
+    end
+  end
 
   # DELETE
   def destroy; end
 
   private
 
-  def article_params
+  def article_params_create
     params.require(:article).permit(:title, :content_original, :author)
+  end
+
+  def article_params_update
+    params.require(:article).permit(:title, :content_original)
   end
 end
