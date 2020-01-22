@@ -14,6 +14,8 @@ Finally, run `rails server` to run it locally
 
 User can create and edit articles. Upon article creation/edit the german translation will be fetched automatically and it will become available to be seen by selecting the "DE" pill in the article view page.
 
+Example: By going to `/articles/1` url, initially no DE option will be available, but if this article is edited and saved, it will fetch the german translation and it will become available to be selected on this same page.
+
 There is still things to be done, usage is limited.
 
 ## TODO
