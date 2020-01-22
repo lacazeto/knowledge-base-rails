@@ -1,5 +1,9 @@
 # README
 
+## REQUIREMENTS
+
+Valid Microsoft Azure Translator Text API Key.
+
 ## SETUP
 
 Run `bundle install` to install all needed gems  
@@ -7,6 +11,8 @@ Run `bundle install` to install all needed gems
 Run `yarn install` to install all JavaScript packages  
 
 Run `bin/rake db:setup` to setup the development and test databases  
+
+Add you Translator Text API key to ENV["TRANSLATOR_TEXT_SUBSCRIPTION_KEY"] (App set to look for key-value entries inside `config/local_env.yml`)
 
 Finally, run `rails server` to run it locally
 
