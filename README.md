@@ -2,15 +2,17 @@
 
 ## SETUP
 
-Run bundle install to install all needed gems  
+Run `bundle install` to install all needed gems  
 
-Run yarn install to install all JavaScript packages  
+Run `yarn install` to install all JavaScript packages  
 
-Run bin/rake db:setup to setup the development and test databases  
+Run `bin/rake db:setup` to setup the development and test databases  
+
+Finally, run `rails server` to run it locally
 
 ## USAGE
 
-User can create and edit articles. Once they are created is also possible to see them in German by selecting the "DE" pill in the article view page.
+User can create and edit articles. Upon article creation/edit the german translation will be fetched automatically and it will become available to be seen by selecting the "DE" pill in the article view page.
 
 There is still things to be done, usage is limited.
 
