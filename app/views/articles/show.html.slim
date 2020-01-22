@@ -20,4 +20,4 @@
           - @article.content_original.split("\n").each do |paragraph|
             p = paragraph
         
-        = submit_tag "Edit", :class => "btn btn-dark mt-3"
+        a.btn.btn-dark.mt-3 href="/articles/#{@article.id}/edit" Edit
