@@ -52,11 +52,11 @@ class ArticlesController < ApplicationController
           format.html { redirect_to @article, notice: 'Article was successfully updated.' }
           format.json { render @article, status: :updated, location: @article }
         else
-          format.html { redirect_to :edit }
+          format.html { redirect_back fallback_location: @article }
           format.json { render json: @article.errors, status: :unprocessable_entity }
         end
       else
-        format.html { redirect_to :edit }
+        format.html { redirect_back fallback_location: @article }
         format.json { head :no_content }
       end
     end
